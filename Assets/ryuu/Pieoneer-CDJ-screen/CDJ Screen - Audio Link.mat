@@ -1,0 +1,351 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CDJ Screen - Audio Link
+  m_Shader: {fileID: 4800000, guid: 45af1d1f4ebaef74db539a46b525a861, type: 3}
+  m_ShaderKeywords: AL_EFFECT_UV_BASED BAKERY_NONE DETAILS_MODE_PACKED _ALPHAPREMULTIPLY_ON
+    _DRAWTEXTURE_OFF _DRAWTEXTURE_ON _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _STYLE_3BAND
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ALMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BarColor:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DDetailsMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DDetailsNormal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DFG:
+        m_Texture: {fileID: 2800000, guid: 10777c143c503483c9f7f7f34a0cd77a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 0, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: e244718b600092a4bae1a08e7795305e, type: 3}
+        m_Scale: {x: 1, y: 0.5}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMask:
+        m_Texture: {fileID: 2800000, guid: 5fafed089bd6e6447b433d07e7d4af1a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FourthTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 93c4b847b07627a4285a571edb64d615, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PulseTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RNM0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RNM1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RNM2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SSCubemap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SSSubPixel:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadowMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThirdTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WVFRMBottomColor:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WVFRMMiddleColor:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WVFRMTopColor:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - AL_EFFECT: 1
+    - BAKERY: 0
+    - DETAILS_MODE: 0
+    - PixelSnap: 0
+    - UI_AdvancedHeader: 0
+    - UI_AudioLinkHeader: 0
+    - UI_AudioLinkThanksNote: 0
+    - UI_BakeryHeader: 0
+    - UI_BandNote: 0
+    - UI_BarGrad: 0
+    - UI_ChannelSelector: 0
+    - UI_DPlanarAxisSelector: 0
+    - UI_DetailAlbedoNote: 0
+    - UI_DetailSmoothNote: 0
+    - UI_DetailsHeader: 0
+    - UI_DetailsMapNote: 0
+    - UI_DetailsMapNoteSeparate: 0
+    - UI_ForceBoxProjectionNote: 0
+    - UI_GSAAHeader: 0
+    - UI_GSAANote: 0
+    - UI_GlobalSettingsHeader: 0
+    - UI_IgnoreMaskNote: 0
+    - UI_InternalsHeader: 0
+    - UI_LightmappingHeader: 0
+    - UI_MainHeader: 0
+    - UI_MetallicRemap: 0
+    - UI_PlanarAxisSelector: 0
+    - UI_PulseTextureNote: 0
+    - UI_PulseTextureNote2: 0
+    - UI_SelectedEffect: 0
+    - UI_SkyboxScreenHeader: 0
+    - UI_SmoothnessRemap: 0
+    - UI_Spacer: 0
+    - UI_UVColorsNote: 0
+    - UI_WVFRMBottomGrad: 0
+    - UI_WVFRMMiddleGrad: 0
+    - UI_WVFRMTopGrad: 0
+    - _ALUVChannel: 0
+    - _AOChannel: 1
+    - _AlbedoChannel: 0
+    - _Amount: 0.5
+    - _Amplitude: 1
+    - _AudioLinkSmoothToggle: 1
+    - _AudioLinkToggle: 0
+    - _BakedSpecular: 0
+    - _BakeryEnabled: 0
+    - _BakerySHNonLinear: 0
+    - _BandFrequency: 1
+    - _BandHistoryRange: 128
+    - _BandScrollAxis: 1
+    - _BarAxis: 1
+    - _BarBand: 1
+    - _BarScale: 1
+    - _Bicubic: 0
+    - _Bleed: 0.4
+    - _BlendOp: 0
+    - _BlueScale: 1
+    - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
+    - _ColorMode: 0
+    - _Composite: 0
+    - _Cull: 2
+    - _CullMode: 2
+    - _Cutoff: 0.5
+    - _DAlbedoScale: 1
+    - _DDetailsMapRef1: 0
+    - _DDetailsMapRef2: 0
+    - _DIgnoreMask: 0
+    - _DMappingSpace: 0
+    - _DNormalFlipY: 0
+    - _DNormalScale: 1
+    - _DPlanarAxisX: 0
+    - _DPlanarAxisY: 2
+    - _DSmoothScale: 1
+    - _DUVChannel: 0
+    - _DetailAsTintMask: 0
+    - _DetailMaskChannel: 2
+    - _DetailNormalMapScale: 1
+    - _DetailsOverlay: 0
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0
+    - _DrawTexture: 0
+    - _DstBlend: 10
+    - _EmissionBoost: 1
+    - _EmissionChannel: 0
+    - _EmissionEnabled: 0
+    - _EnableExternalAlpha: 0
+    - _EnableGSAA: 0
+    - _Exposure: 1
+    - _FlipBumpY: 0
+    - _FlipbookMode: 0
+    - _ForceBoxPorject: 0
+    - _GSAAThreshold: 0.1
+    - _GSAAVariance: 0.05
+    - _GammaCorrect: 0
+    - _GlossMapScale: 0
+    - _Glossiness: 1
+    - _GlossyReflections: 1
+    - _GradientSpeed: 0
+    - _GreenScale: 1
+    - _Intensity: 0.95
+    - _InvFade: 1
+    - _KillEffects: 0
+    - _LaserCount: 3.2
+    - _LaserVerticalOffset: 0
+    - _LaserVerticalRange: 0.5
+    - _LightingEnabled: 1
+    - _MappingSpace: 0
+    - _MetalChannel: 0
+    - _Metallic: 1
+    - _Mode: 3
+    - _Movement: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _PlanarAxisX: 0
+    - _PlanarAxisY: 2
+    - _PointsPerLayer: 21.2
+    - _PulseBand: 1
+    - _PulseEmissionMode: 0
+    - _PulseMode: 0
+    - _PulseStrength: 1
+    - _PulseTextureAdjustment: 0
+    - _RandomHeight: 0.5
+    - _RandomSpeed: 0.5
+    - _RedScale: 1
+    - _RemoveDiag: 0
+    - _Resolution: 1
+    - _Rotation: 0
+    - _RoughnessMode: 0
+    - _SSCubeLOD: 0
+    - _SSCubeRotation: 0
+    - _Shininess: 1
+    - _Size: 1.6
+    - _SmoothChannel: 3
+    - _Smoothness: 0
+    - _SmoothnessTextureChannel: 1
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
+    - _SpecOcclusion: 1
+    - _SpecularHighlights: 1
+    - _SpecularRoughnessMod: 1
+    - _SrcBlend: 1
+    - _Style: 0
+    - _TransparencyThreshold: 0
+    - _TransparentBackground: 0
+    - _UVFlipXY: 0
+    - _UVHistoryRange: 128
+    - _UVSec: 0
+    - _UVUseThemeColors: 0
+    - _WVFRMFlip: 0
+    - _WVFRMMiddleLine: 0
+    - _WVFRMMiddleLineWidth: 0.05
+    - _WVFRMOffset: 0.5
+    - _WVFRMScale: 0.05
+    - _WaveHeight: 0.5
+    - _WaveLength: 0.5
+    - _WaveSpeed: 1
+    - _WaveformGain: -0.5
+    - _WaveformHeight: 0.5
+    - _WaveformLineSmoothing: 0.01
+    - _WaveformSmoothness: 0.0337
+    - _WaveformThickness: 0.05
+    - _WaveformZoom: 1
+    - _Width: 7
+    - _WindQuality: 0
+    - _WireframeVal: 0.05
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _triangle: 1
+    m_Colors:
+    - _ALTint: {r: 1, g: 1, b: 1, a: 1}
+    - _BandFourColor: {r: 1, g: 0.8193936, b: 0, a: 1}
+    - _BandOneColor: {r: 1, g: 0, b: 0.08857536, a: 1}
+    - _BandThreeColor: {r: 0.27483654, g: 0, b: 1, a: 1}
+    - _BandTwoColor: {r: 0.99631906, g: 1, b: 0, a: 1}
+    - _BassColor: {r: 0, g: 0.44705883, b: 0.8745098, a: 1}
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 34.29675, g: 34.29675, b: 34.29675, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _GradientOne: {r: 0.40699744, g: 1, b: 0, a: 1}
+    - _GradientTwo: {r: 1, g: 0, b: 0.09470558, a: 1}
+    - _GreenColor: {r: 0, g: 1, b: 0.013520718, a: 1}
+    - _HighColor: {r: 0.9647059, g: 0.91764706, b: 0.8509804, a: 1}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - _MainTex_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _MetallicRemap: {r: 0, g: 1, b: 0, a: 1}
+    - _MidColor: {r: 0.7019608, g: 0.4117647, b: 0.10980392, a: 1}
+    - _Mouse: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _PulseTextureDirection: {r: 0, g: 1, b: 0, a: 0}
+    - _RedColor: {r: 0, g: 0.44705883, b: 0.8745098, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SmoothnessRemap: {r: 0, g: 1, b: 0, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _YellowColor: {r: 1, g: 0.98470926, b: 0, a: 1}
