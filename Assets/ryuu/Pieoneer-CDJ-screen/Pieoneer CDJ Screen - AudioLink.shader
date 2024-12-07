@@ -7,8 +7,10 @@
 		[Toggle] _TransparentBackground ("Transparent Background",float) = 0
 
 		[KeywordEnum(3Band, RGB, Blue)] _Style("Waveform Style", int) = 0
-		_WaveformGain("Gain", Range(-1,1)) = 0
-		_WaveformSmoothness("Waveform Smoothness", Range(0,0.2)) = 0.01
+		_WaveformGain("Gain", Range(0,1)) = 1
+		[IntRange] _WaveformSampleRate("Wave count", Range(1,256)) = 1
+		_BandTimeShift("Band shift multiplier", Range(0,1)) = 1
+		_WaveformSmoothness("Waveform Smoothness", Range(0.05,1)) = 0.01
 		[IntRange] _WaveformZoom("Zoom", Range(1,4)) = 0
 
 	}
@@ -32,6 +34,9 @@
 			#include "UnityCG.cginc"
 			#include "Packages/com.llealloo.audiolink/Runtime/Shaders/AudioLink.cginc"
 
+			#define IF(a, b, c) lerp(b, c, step((fixed) (a), 0))
+			#define glsl_mod(x,y) (((x)-(y)*floor((x)/(y))))
+
 			struct appdata
 			{
 				float4 vertex : POSITION;
@@ -52,6 +57,9 @@
 
 			float _WaveformSmoothness;
 			float _WaveformGain;
+			float _WaveformThickness;
+			float _WaveformSampleRate;
+			float _BandTimeShift;
 			half _WaveformZoom;
 
 			fixed3 _BassColor;
@@ -65,13 +73,11 @@
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.tex_uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.uv = v.uv;
-
 				return o;
 			}
 
 			fixed4 frag(v2f i) : SV_Target
 			{
-
 				#ifdef _STYLE_3BAND
 					_BassColor = fixed3(0, 0.1682694, 0.7379106);
 					_MidColor = fixed3(0.4507858, 0.1412633, 0.01161224);
@@ -96,26 +102,42 @@
 					fixed4 c = fixed4(0,0,0,0);
 				#endif
 
+				_WaveformSampleRate =  _WaveformSampleRate / _WaveformZoom;
+				
 				i.uv.x = 1 - i.uv.x;
 
-				float band0 = AudioLinkData(ALPASS_AUDIOLINK + float2(i.uv.x * AUDIOLINK_WIDTH / _WaveformZoom , 0)).r;
-				band0 += band0 * _WaveformGain;
+				float audiolink_saw = lerp(0,1,frac(i.uv.x*AUDIOLINK_WIDTH/_WaveformZoom));
+				float audiolink_scroll_speed = 1/AUDIOLINK_4BAND_TARGET_RATE * AUDIOLINK_WIDTH * _WaveformZoom;
+				float audiolink_uv_x = ((i.uv.x) * AUDIOLINK_WIDTH / _WaveformZoom);
 				
-				float band1 = AudioLinkData(ALPASS_AUDIOLINK + float2(i.uv.x * AUDIOLINK_WIDTH / _WaveformZoom , 1)).r*0.7;
-				band1 += band1 * _WaveformGain;
+				float band0_polarity = lerp(0, 1, 1-abs(frac((-(i.uv.x) + _Time.y*audiolink_scroll_speed) * 2 * _WaveformSampleRate)-0.5)*2);
+				float band1_polarity = lerp(0, 1, 1-abs(frac((-(i.uv.x+0.3*_BandTimeShift) + _Time.y*audiolink_scroll_speed) * 2 * _WaveformSampleRate)-0.5)*2);
+				float band2_polarity = lerp(0, 1, 1-abs(frac((-(i.uv.x+0.6*_BandTimeShift) + _Time.y*audiolink_scroll_speed) * 2 * _WaveformSampleRate)-0.5)*2);
 				
-				float band2 = AudioLinkData(ALPASS_AUDIOLINK + float2(i.uv.x * AUDIOLINK_WIDTH / _WaveformZoom , 2)).r*0.5;
-				band2 += band2 * _WaveformGain;
+				i.uv.x = glsl_mod(i.uv.x + _Time.y, 1.0 / (_WaveformZoom / _WaveformSampleRate * AUDIOLINK_4BAND_TARGET_RATE * AUDIOLINK_WIDTH));
+				
+				
+				float band0 = lerp(AudioLinkData(ALPASS_AUDIOLINK + float2(audiolink_uv_x, 0)).r, AudioLinkData(ALPASS_AUDIOLINK + float2(audiolink_uv_x+1, 0)).r, audiolink_saw);
+				
+				float band1 = lerp(AudioLinkData(ALPASS_AUDIOLINK + float2(audiolink_uv_x, 1)).r, AudioLinkData(ALPASS_AUDIOLINK + float2(audiolink_uv_x+1, 1)).r, audiolink_saw)*0.7;
+				
+				float band2 = lerp(AudioLinkData(ALPASS_AUDIOLINK + float2(audiolink_uv_x, 2)).r, AudioLinkData(ALPASS_AUDIOLINK + float2(audiolink_uv_x+1, 2)).r, audiolink_saw)*0.5;
+								
+				i.uv.y = abs((i.uv.y - 0.5) * 2) / _WaveformGain/2;
+				
+				band1 *= 0.85;
+				band2 *= 0.70;
 
-				float uvpoint = abs(i.uv.y - 0.5); 
+				float band0_waveform = 1 - smoothstep((band0_polarity * band0) * (1 - _WaveformSmoothness*0.9), (band0_polarity * band0), i.uv.y);
+				float band1_waveform = 1 - smoothstep((band1_polarity * band1) * (1 - _WaveformSmoothness*0.9), (band1_polarity * band1), i.uv.y);
+				float band2_waveform = 1 - smoothstep((band2_polarity * band2) * (1 - _WaveformSmoothness*0.9), (band2_polarity * band2), i.uv.y);
 
-				c = lerp(c, fixed4(_BassColor.rgb,1), smoothstep(band0, band0 - _WaveformSmoothness, uvpoint));
-				c = lerp(c,fixed4( _MidColor.rgb, 1), smoothstep(band1, band1 - _WaveformSmoothness, uvpoint));
-				c = lerp(c, fixed4(_HighColor.rgb, 1), smoothstep(band2, band2 - _WaveformSmoothness, uvpoint));
-				
+
+				c = lerp(c, fixed4( _BassColor.rgb, 1), band0_waveform);
+				c = lerp(c, fixed4( _MidColor.rgb, 1), band1_waveform);
+				c = lerp(c, fixed4( _HighColor.rgb, 1), band2_waveform);
 				return c;
 			}
-
 			ENDCG
 		}
 	}

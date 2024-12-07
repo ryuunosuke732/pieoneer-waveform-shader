@@ -195,6 +195,7 @@ Material:
     - _BandFrequency: 1
     - _BandHistoryRange: 128
     - _BandScrollAxis: 1
+    - _BandTimeShift: 0.539
     - _BarAxis: 1
     - _BarBand: 1
     - _BarScale: 1
@@ -307,11 +308,14 @@ Material:
     - _WaveHeight: 0.5
     - _WaveLength: 0.5
     - _WaveSpeed: 1
-    - _WaveformGain: -0.5
+    - _WaveThickness: 0.0141
+    - _WaveformGain: 0.531
     - _WaveformHeight: 0.5
     - _WaveformLineSmoothing: 0.01
-    - _WaveformSmoothness: 0.0337
-    - _WaveformThickness: 0.05
+    - _WaveformSampleRate: 47
+    - _WaveformSampling: 59.5
+    - _WaveformSmoothness: 0.295
+    - _WaveformThickness: 0
     - _WaveformZoom: 1
     - _Width: 7
     - _WindQuality: 0
@@ -321,6 +325,7 @@ Material:
     - _triangle: 1
     m_Colors:
     - _ALTint: {r: 1, g: 1, b: 1, a: 1}
+    - _BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
     - _BandFourColor: {r: 1, g: 0.8193936, b: 0, a: 1}
     - _BandOneColor: {r: 1, g: 0, b: 0.08857536, a: 1}
     - _BandThreeColor: {r: 0.27483654, g: 0, b: 1, a: 1}
@@ -348,4 +353,5 @@ Material:
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _WaveColor: {r: 0, g: 1, b: 0, a: 1}
     - _YellowColor: {r: 1, g: 0.98470926, b: 0, a: 1}
